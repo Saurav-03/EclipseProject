@@ -1,0 +1,50 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<!-- 
+Owned entity class mapping.
+only the state need to be mapped
+and relation need to be specified.
+ -->
+<class name="mypack.Previlige" table="Previliges">
+<cache usage="read-write" region="r2"/>
+<id name="id" type="int">
+<generator class="increment"/>
+</id>
+<property name="name"/>
+<property name="cost" type="int"/>
+<set name="users" table="Emp_Previlige" inverse="true">
+<key column="previligeId"/>
+<many-to-many class="mypack.Emp" 
+column="empId"/>
+</set>
+</class>
+
+<!-- 
+Owner entity class mapping.
+State, Relation, Persistence of the Relation
+and cascading need to be specified.
+ -->
+<class name="mypack.Emp" table="Emp">
+<cache usage="read-write" region="r1"/>
+<id name="id" type="int">
+<generator class="increment"/>
+</id>
+<property name="name"/>
+<property name="job"/>
+<property name="salary" type="int"/>
+<set name="previliges" table="Emp_Previlige" 
+cascade="save-update" lazy="false">
+<key column="empId"/>
+<many-to-many class="mypack.Previlige" 
+column="previligeId"/>
+</set>
+</class>
+
+</hibernate-mapping>
+
+
+
+
