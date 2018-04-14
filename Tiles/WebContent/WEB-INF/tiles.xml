@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+ <!DOCTYPE tiles-definitions PUBLIC 
+ "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" 
+ "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"> 
+ 
+ <tiles-definitions>
+ <definition name="base" template="/pages/layout.jsp">
+ <put-attribute name="title" value="MVC App"/>
+ <put-attribute name="header" value="/pages/header.jsp"/>
+ </definition>
+ <definition name="userBase" template="/pages/layout.jsp">
+ <put-attribute name="title" value="MVC App"/>
+ <put-attribute name="header" value="/pages/userHeader.jsp"/>
+ </definition>
+ <definition name="registerForm" extends="base">
+  <put-attribute name="contents" value="/pages/registerForm.jsp"/>
+ </definition>
+ <definition name="registered" extends="base">
+  <put-attribute name="contents" value="/pages/registered.jsp"/>
+ </definition>
+ <definition name="relogin" extends="base">
+  <put-attribute name="contents" value="/pages/relogin.jsp"/>
+ </definition>
+ <definition name="loggedOut" extends="base">
+  <put-attribute name="contents" value="/pages/loggedOut.jsp"/>
+ </definition>
+ <definition name="home" extends="userBase">
+  <put-attribute name="contents" value="/pages/home.jsp"/>
+ </definition>
+ <definition name="profile" extends="userBase">
+  <put-attribute name="contents" value="/pages/profile.jsp"/>
+ </definition>
+ <definition name="updated" extends="userBase">
+  <put-attribute name="contents" value="/pages/updated.jsp"/>
+ </definition>
+ </tiles-definitions>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
